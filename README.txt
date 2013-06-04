@@ -12,9 +12,13 @@ to speaker.
 with PicKit 3 programmer (included in PICDEM). All used parts
 are included in that kit.
 
-  Tested in MPLAB X IDE.
+  Tested in MPLAB X IDE v1.80
 
 Links:
 
-  * PIC10F206 datasheet at http://www.microchip.com/TechDoc.aspx?type=datasheet&product=10f206
-  * DM163045  - PICDEM Lab Development Kit at http://www.microchipdirect.com/productsearch.aspx?keywords=DM163045
+* PIC10F206 datasheet 
+    http://www.microchip.com/TechDoc.aspx?type=datasheet&product=10f206
+* DM163045 - PICDEM Lab Development Kit 
+    http://www.microchipdirect.com/productsearch.aspx?keywords=DM163045
+* MPLAB X IDE
+    http://www.microchip.com/pagehandler/en-us/family/mplabx/
