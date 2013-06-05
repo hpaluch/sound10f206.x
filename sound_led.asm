@@ -1,5 +1,10 @@
 ; sound_led.asm - simple project to drive LED & Sound on Speaker
 ; see ExpressPCB folder for schematics
+;
+; Copyright (C) Henryk Paluch, hpaluch at seznam dot cz, http://henryx.info
+; Few ideas taken from Gooligum Tutorials at
+;     http://www.gooligum.com.au/tutorials.html
+
 ; PIN assignment:
 ;  GP2 - LED diodes
 ;  GP1 - speaker drive
