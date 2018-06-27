@@ -14,6 +14,18 @@ are included in that kit.
 
   Tested in MPLAB X IDE v1.80
 
+HW Setup:
+
+- Power off PICDEM Kit
+- Remove jumpers J3, J4 (turn off power from other MCU sockets)
+- Put jumper J5 (power on U5 socket for PIC10F206)
+- Connect PicKit 3 to USB
+- Connect PicKit 3 to PICDEM board
+- Power on PicDEM board
+- Program device using "Run" command of MPLAB X IDE.
+
+
+
 Links:
 
 * PIC10F206 datasheet 
