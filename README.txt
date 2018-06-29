@@ -25,15 +25,20 @@ HW Setup:
 - Program device using "Run" command of MPLAB X IDE.
 
 
-
 Links:
 
 * PIC10F206 datasheet 
-    http://www.microchip.com/TechDoc.aspx?type=datasheet&product=10f206
+   old: http://www.microchip.com/TechDoc.aspx?type=datasheet&product=10f206
+   new: https://www.microchip.com/wwwproducts/en/PIC10F206
 * DM163045 - PICDEM Lab Development Kit 
-    http://www.microchipdirect.com/productsearch.aspx?keywords=DM163045
+   old: http://www.microchipdirect.com/productsearch.aspx?keywords=DM163045
+   new: http://www.microchip.com/Developmenttools/ProductDetails/DM163045
 * MPLAB X IDE
-    http://www.microchip.com/pagehandler/en-us/family/mplabx/
+   old: http://www.microchip.com/pagehandler/en-us/family/mplabx/
+   new: http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v1.80-windows-installer.zip
+        from page: http://www.microchip.com/development-tools/pic-and-dspic-downloads-archive
+* IRFD 9020 - power P-Channel MOSFET - tranzistor data-sheet including package layout:
+  - https://www.vishay.com/docs/91137/sihfd902.pdf
 
 Other Links:
 
