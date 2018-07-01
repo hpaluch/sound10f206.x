@@ -15,7 +15,12 @@
     __CONFIG  _MCLRE_ON & _CP_OFF & _WDT_OFF
 
     CONSTANT nLED = GP2 ; bit for LED on GPIO
+; WARNING! GP1 is used for ISP programming - can have only light load!
     CONSTANT nSPKR = GP1 ; bit for SPKR on GPIO
+
+; NOTE: if change above bits you need also to change instruction in code:
+;     MOVLW ~(1<<TRISIO1 | 1<<TRISIO2 )  ; GP2 & GP1 OUTPUT, other are Inputs
+
 
 ;***** user data (general registers)
 MY_DATA UDATA
@@ -23,18 +28,19 @@ sGPIO   RES 1
 cnt1    RES 1
 cnt2    RES 1
 
-;***** RC CALIBRATION
-RCCAL   CODE    0x1FF           ; processor reset vector
-        RES 1                   ; holds internal RC cal value, as a movlw k
-
 ;*** RESET
 RES_VECT  CODE    0x0000            ; processor reset vector
+; WARNING! My PIC has corrupted calibration value:
+; Line         Address         Opcode         Label         DisAssy
+; 512            1FF            0002                          OPTION
+; Which causes following erratic behaviour:
+; a) pitch randomly changes on power-up
+; b) GP2 is someties switched to FOSC4 output, which caues LED to not blink
+; comment out 'MOVLW 0x0' instruction bellow if you are sure that your PIC is OK
+;
+    MOVLW   0x0
     MOVWF   OSCCAL
-    GOTO    START                   ; go to beginning of program
-
-
-;*** MAIN CODE
-MAIN_PROG CODE              ; let linker place main program
+;
 START
     MOVLW  ~(1<<T0CS)      ; clear T0CS so that GP2 can be used
     OPTION
