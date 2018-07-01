@@ -12,7 +12,9 @@ to speaker.
 with PicKit 3 programmer (included in PICDEM). All used parts
 are included in that kit.
 
-  Tested in MPLAB X IDE v1.80
+  Tested in MPLAB X IDE v2.35
+  (I abandoned 1.80 because it is unable to reprogram calibration
+   value).
 
 HW Setup:
 
@@ -35,7 +37,7 @@ Links:
    new: http://www.microchip.com/Developmenttools/ProductDetails/DM163045
 * MPLAB X IDE
    old: http://www.microchip.com/pagehandler/en-us/family/mplabx/
-   new: http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v1.80-windows-installer.zip
+   new: http://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v2.35-windows-installer.exe
         from page: http://www.microchip.com/development-tools/pic-and-dspic-downloads-archive
 * IRFD 9020 - power P-Channel MOSFET - tranzistor data-sheet including package layout:
   - https://www.vishay.com/docs/91137/sihfd902.pdf
