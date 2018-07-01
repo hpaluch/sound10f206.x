@@ -5,6 +5,19 @@
 ; Few ideas taken from Gooligum Tutorials at
 ;     http://www.gooligum.com.au/tutorials.html
 
+; PicKit3 workaround:
+; New MPLAB X has initially troubles accessing PicKit3
+; (exhibited on v2.35/XP SP3, VirtualBox 5.2.10 with Extension pack):
+; At first it reports:
+; "Firmware type..............Unknown Firmware Type"
+; and finally:
+; "Connection Failed."
+;
+; Fortunately there is easy workaround:
+; just invoke "Read Device Memory" - it should succeed and then
+; all programming functions should succeed.
+
+
 ; PIN assignment:
 ;  GP2 - LED diodes
 ;  GP1 - speaker drive
@@ -28,17 +41,32 @@ sGPIO   RES 1
 cnt1    RES 1
 cnt2    RES 1
 
-;*** RESET
-RES_VECT  CODE    0x0000            ; processor reset vector
-; WARNING! My PIC has corrupted calibration value:
+; Overwriting corrupted calibration value:
+; WARNING! My PIC had corrupted calibration value:
 ; Line         Address         Opcode         Label         DisAssy
 ; 512            1FF            0002                          OPTION
-; Which causes following erratic behaviour:
+; Which caused following erratic behaviour:
 ; a) pitch randomly changes on power-up
 ; b) GP2 is someties switched to FOSC4 output, which caues LED to not blink
-; comment out 'MOVLW 0x0' instruction bellow if you are sure that your PIC is OK
 ;
-    MOVLW   0x0
+; If it happens to you than you need to:
+; - in Project Properties -> Conf -> PicKit3 -> Program Options:
+; - enable "Program callibration memory"
+; and uncomment following 2 lines:
+;FIX_CAL CODE 0x1ff
+;    MOVLW 0x2
+; - and reprogram device
+; - invoke Read Device Memory
+; - open Window -> PIC Memory Views -> Program Memory
+; - verify content of 0x1ff address - there must be above MOVLW 0x2 instruction
+; - when OK, disable "Program callibration memory"
+; - and comment out above two instructions again...
+
+;*** RESET
+RES_VECT  CODE    0x0000            ; processor reset vector
+; uncomment following instruction if you have corrupted calibration
+; (see above comments)...
+;    MOVLW   0x0
     MOVWF   OSCCAL
 ;
 START
